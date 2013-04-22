@@ -120,6 +120,7 @@ def add_cwd_segment(powerline, cwd, maxdepth, cwd_only=False):
     if len(names) > maxdepth:
         names = names[:2] + ['⋯ '] + names[2 - maxdepth:]
 
+    powerline.append(Segment(powerline, '%n@%m:' , Color.CWD_FG, Color.PATH_BG))
     if not cwd_only:
         for n in names[:-1]:
             powerline.append(Segment(powerline, ' %s ' % n, Color.PATH_FG, Color.PATH_BG, powerline.separator_thin, Color.SEPARATOR_FG))
